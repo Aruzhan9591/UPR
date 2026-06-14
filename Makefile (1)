@@ -1,0 +1,11 @@
+CC = gcc
+CFLAGS = -Wall -g -fsanitize=address
+TARGET = csv_program
+
+all: $(TARGET)
+
+$(TARGET): main.c csv.c commands.c utils.c
+	$(CC) $(CFLAGS) -o $(TARGET) main.c csv.c commands.c utils.c
+
+clean:
+	rm -f $(TARGET)
